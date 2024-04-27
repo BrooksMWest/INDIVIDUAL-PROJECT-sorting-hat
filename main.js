@@ -1,5 +1,5 @@
 console.log("i'm connected")
-const students = [
+const characters = [
   {
   id: 1,
   name: "Harry Potter",
@@ -143,3 +143,24 @@ const renderToDom = (divId, htmlToRender) => {
   const sectedDiv = document.querySelector(divID);
   selectedDiv.innerHTML = htmlToRender
 };
+
+const cardsOnDom = (characters) => {
+  let domString ="";
+  for (character of characters) {
+    domstring += `<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="${character.imageUrl}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">${character.name}</h5>
+          <p class="card-text">${character.house}</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>`
+  }
+  renderToDom("#app", domString)
+}

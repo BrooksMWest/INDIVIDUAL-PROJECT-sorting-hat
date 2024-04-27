@@ -5,6 +5,7 @@ const students = [
   name: "Harry Potter",
   house: "Gryffindor", 
   gender: "male",
+  role: "student",
   imageUrl: "https://static.wikia.nocookie.net/neoencyclopedia/images/4/44/HarryPotter5poster.jpg/revision/latest?cb=20121121021021"
   },
   {
@@ -12,6 +13,7 @@ const students = [
     name: "Hermione Granger",
     house: "Gryffindor",
     gender: "female",
+    role: "student",
     imageUrl: "https://miro.medium.com/v2/resize:fit:1358/0*fZV8g-1uYh05uz3H"
   },
   {
@@ -19,6 +21,7 @@ const students = [
     name: "Ron Weasley",
     house: "Gryffindor",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/5/55/Ronald.jpg/revision/latest/thumbnail/width/360/height/360?cb=20200730144844"
    
   },
@@ -27,6 +30,7 @@ const students = [
     name: "Draco Malfoy",
     house: "Slytherin",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/8/84/Draco_Malfoy_%28HBP_promo%29.jpg/revision/latest/scale-to-width-down/289?cb=20140623200347"
   },
   {
@@ -34,6 +38,7 @@ const students = [
     name: "Neville Longbottom",
     house: "Gryffindor",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/the-truth-behind-aurora/images/4/4b/Static-assets-upload5489954150729937058.jpg/revision/latest?cb=20210916011844"
   },
   {
@@ -41,6 +46,7 @@ const students = [
     name: "Ginny Weasley",
     house: "Gryffindor",
     gender: "female",
+    role: "student",
     imageUrl: "https://cdn.staticneo.com/w/harrypotter/thumb/Ginny_weasley.jpg/200px-Ginny_weasley.jpg"
   },
   {
@@ -48,6 +54,7 @@ const students = [
     name: "Luna Lovegood",
     house: "Ravenclaw",
     gender: "female",
+    role: "student",
     imageUrl: "https://images.ctfassets.net/usf1vwtuqyxm/Mam68Vfou2OO6kqEcyW8W/41657e4dbb7d42d2cab591276105bcc1/LunaLovegood_WB_F6_LunaLovegoodInQuibblerSpecsOnHogwartsExpress_Still_080615_Port.jpg?fm=jpg&q=70&w=2560"
   },
   {
@@ -55,6 +62,7 @@ const students = [
     name: "Fred Weasley",
     house: "Gryffindor",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/9/90/Fred_HS_TDH_promo.jpg/revision/latest?cb=20230526122025"
   },
   {
@@ -62,6 +70,7 @@ const students = [
     name: "George Weasley",
     house: "Gryffindor",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/2/2a/DH_promo_front_closeup_George_Weasley.jpg/revision/latest?cb=20161119235305" 
    },
   {
@@ -69,6 +78,7 @@ const students = [
     name: "Cho Chang",
     house: "Ravenclaw",
     gender: "female",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/1/19/Cho_chang.jpg/revision/latest?cb=20220120200400"
   },
   {
@@ -76,6 +86,7 @@ const students = [
     name: "Cedric Diggory",
     house: "Hufflepuff",
     gender: "male",
+    role: "student",
     imageUrl: "https://static.wikia.nocookie.net/p__/images/c/ca/Cedric_Diffory_%22such_a_handsome_boy%22.jpeg/revision/latest?cb=20160306120749&path-prefix=protagonist"
   },
   {
@@ -83,6 +94,7 @@ const students = [
     name: "Severus Snape",
     house: "Slytherin",
     gender: "male",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/warner-bros-entertainment/images/c/c1/Severus-snape1.jpg/revision/latest/thumbnail/width/360/height/450?cb=20171112083156"
   },
   {
@@ -90,6 +102,7 @@ const students = [
     name: "Minerva McGonagall",
     house: "Gryffindor",
     gender: "female",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/p__/images/5/5f/McGonagall_the_Withch.jpeg/revision/latest?cb=20160322213035&path-prefix=protagonist"
   },
   {
@@ -97,6 +110,7 @@ const students = [
     name: "Albus Dumbledore",
     house: "Gryffindor",
     gender: "male",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/4/40/Albus_Dumbledore_%28HBP_promo%29_3.jpg/revision/latest?cb=20150822232849"
   },
   {
@@ -104,6 +118,7 @@ const students = [
     name: "Rubeus Hagrid",
     house: "Gryffindor",
     gender: "male",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/1/10/RubeusHagrid.jpg/revision/latest?cb=20200730081843"
   },
   {
@@ -111,6 +126,7 @@ const students = [
     name: "Bellatrix Lestrange",
     house: "Slytherin",
     gender: "female",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/1/14/BellatrixLestrange.png/revision/latest?cb=20171101034243"
   },
   {
@@ -118,7 +134,12 @@ const students = [
     name: "Sirius Black",
     house: "Gryffindor",
     gender: "male",
+    role: "adult",
     imageUrl: "https://static.wikia.nocookie.net/p__/images/2/2d/Padfoot.jpeg/revision/latest/scale-to-width/360?cb=20160119152604&path-prefix=protagonist"
   }
+];
 
-]
+const renderToDom = (divId, htmlToRender) => {
+  const sectedDiv = document.querySelector(divID);
+  selectedDiv.innerHTML = htmlToRender
+};

@@ -140,14 +140,14 @@ const characters = [
 ];
 
 const renderToDom = (divId, htmlToRender) => {
-  const sectedDiv = document.querySelector(divID);
+  const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
 };
 
 const cardsOnDom = (characters) => {
   let domString ="";
-  for (character of characters) {
-    domstring += `<div class="card mb-3" style="max-width: 540px;">
+  for (const character of characters) {
+    domString += `<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="${character.imageUrl}" class="img-fluid rounded-start" alt="...">
@@ -156,11 +156,58 @@ const cardsOnDom = (characters) => {
         <div class="card-body">
           <h5 class="card-title">${character.name}</h5>
           <p class="card-text">${character.house}</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-body-secondary">${character.role}</small></p>
+        </div>
+        <div>
+        <button type="button" class="btn btn-danger" id="delete--${character.id}">EXILE</button>
         </div>
       </div>
     </div>
   </div>`
   }
   renderToDom("#app", domString)
+};
+
+const filter = (array, characterHouse) => {
+  const houseArray = [];
+
+  array.forEach((character) => {
+    if (character.house === characterHouse) {
+      houseArray.push(character);
+    }
+  });
+  return houseArray;
+};
+
+const showAllButton = document.querySelector("#show-all")
+const showGryffindorButton = document.querySelector("#show-gryffindor")
+const showHufflepuffButton = document.querySelector("#show-hufflepuff")
+const showRavenclawButton = document.querySelector("#show-ravenclaw")
+const showSlytherinButton = document.querySelector("#show-slytherin")
+
+showAllButton.addEventListener("click", () => {
+  cardsOnDom(characters);
+});
+
+showGryffindorButton.addEventListener("click.", () => {
+  const gryffindorChars = filter(characters, "Gryffindor")
+  cardsOnDom(gryffindorChars);
+})
+
+showHufflepuffButton.addEventListener("click.", () => {
+  const hufflepuffChars = filter(characters, "Hufflepuff")
+  cardsOnDom(hufflepuffChars);
+})
+showRavenclawButton.addEventListener("click.", () => {
+    const ravenclawChars = filter(characters, "Ravenclaw")
+    cardsOnDom(ravenclawChars);
+})
+showGryffindorButton.addEventListener("click.", () => {
+      const slytherinChars = filter(characters, "Slytherin")
+      cardsOnDom(slytherinChars);
+})
+const startApp = () => {
+  cardsOnDom(characters)
 }
+
+startApp();

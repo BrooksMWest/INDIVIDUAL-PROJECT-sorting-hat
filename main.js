@@ -1,4 +1,5 @@
 console.log("i'm connected")
+//this array of characters may not even be used.
 const characters = [
   {
   id: 1,
@@ -137,11 +138,25 @@ const characters = [
     imageUrl: "https://therantingsofabookworm.files.wordpress.com/2016/07/f5110ad6f7c1f0942722d4aa316ad6d4.jpg?w=144"
   }
 ];
+//the array students will be pushed into when the form submits
+const students =[];
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
 };
+// this is where i will make a formOnTheDom function that is activated when i click the "click me to sort someone" button
+
+const form = document.querySelector("form")
+const createStudent = (e) => {
+  e.preventDefault();
+
+  const newStudentObj = {
+    id:students.length + 1,
+    name: document.querySelector("#name").value,
+    house: document.querySelector("#house").value,
+  }
+}
 
 const cardsOnDom = (characters) => {
   let domString ="";
@@ -184,7 +199,6 @@ const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
 const showSlytherinButton = document.querySelector("#show-slytherin")
 
-console.log(showGryffindorButton)
 
 showAllButton.addEventListener("click", () => {
   cardsOnDom(characters);

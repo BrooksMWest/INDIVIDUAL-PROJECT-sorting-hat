@@ -6,7 +6,7 @@ const characters = [
   house: "Gryffindor", 
   gender: "male",
   role: "student",
-  imageUrl: "https://static.wikia.nocookie.net/neoencyclopedia/images/4/44/HarryPotter5poster.jpg/revision/latest?cb=20121121021021"
+  imageUrl: "https://www.irishtimes.com/resizer/SmxgbQ6uare8cwxz0bGi94tWcPM=/1600x1600/filters:format(jpg):quality(70)/cloudfront-eu-central-1.images.arcpublishing.com/irishtimes/3MS3PYEKJI2N533Z3ZG6VJ2RKU.jpg"
   },
   {
     id: 2,
@@ -22,8 +22,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/5/55/Ronald.jpg/revision/latest/thumbnail/width/360/height/360?cb=20200730144844"
-   
+    imageUrl: "https://media.harrypotterfanzone.com/ron-weasley-yule-ball-portrait-2.jpg"
   },
   {
     id: 4,
@@ -31,7 +30,7 @@ const characters = [
     house: "Slytherin",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/8/84/Draco_Malfoy_%28HBP_promo%29.jpg/revision/latest/scale-to-width-down/289?cb=20140623200347"
+    imageUrl: "https://miro.medium.com/v2/resize:fit:1400/1*3u1GM9w8XN2A704Dd3DbDQ@2x.jpeg"
   },
   {
     id: 5,
@@ -39,7 +38,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/the-truth-behind-aurora/images/4/4b/Static-assets-upload5489954150729937058.jpg/revision/latest?cb=20210916011844"
+    imageUrl: "https://pavingmyauthorsroad.files.wordpress.com/2016/07/nevillelongbottom_wb_f4_nevillelongbottomwithplantpromoshot_promo_080615_port.jpg?w=640"
   },
   {
     id: 6,
@@ -63,7 +62,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/9/90/Fred_HS_TDH_promo.jpg/revision/latest?cb=20230526122025"
+    imageUrl: "https://itistrish.com/wp-content/uploads/2015/08/large.png"
   },
   {
     id: 9,
@@ -71,7 +70,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/2/2a/DH_promo_front_closeup_George_Weasley.jpg/revision/latest?cb=20161119235305" 
+    imageUrl: "https://i.pinimg.com/736x/f0/a0/13/f0a013b8f28a57a7ebf0fddd559b966c.jpg" 
    },
   {
     id: 10,
@@ -79,7 +78,7 @@ const characters = [
     house: "Ravenclaw",
     gender: "female",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/1/19/Cho_chang.jpg/revision/latest?cb=20220120200400"
+    imageUrl: "https://s.abcnews.com/images/GMA/katie-leung-asian-racist-attack-02-ht-llr-210311_1615509383220_hpMain.jpg"
   },
   {
     id: 11,
@@ -87,7 +86,7 @@ const characters = [
     house: "Hufflepuff",
     gender: "male",
     role: "student",
-    imageUrl: "https://static.wikia.nocookie.net/p__/images/c/ca/Cedric_Diffory_%22such_a_handsome_boy%22.jpeg/revision/latest?cb=20160306120749&path-prefix=protagonist"
+    imageUrl: "https://i.pinimg.com/564x/79/7b/03/797b035e829eb09745efe6a61149760b.jpg"
   },
   {
     id: 12,
@@ -95,7 +94,7 @@ const characters = [
     house: "Slytherin",
     gender: "male",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/warner-bros-entertainment/images/c/c1/Severus-snape1.jpg/revision/latest/thumbnail/width/360/height/450?cb=20171112083156"
+    imageUrl: "https://i.pinimg.com/736x/03/90/0b/03900b837b6cd93906823d30c07077d4.jpg"
   },
   {
     id: 13,
@@ -103,7 +102,7 @@ const characters = [
     house: "Gryffindor",
     gender: "female",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/p__/images/5/5f/McGonagall_the_Withch.jpeg/revision/latest?cb=20160322213035&path-prefix=protagonist"
+    imageUrl: "https://hpfeminism.weebly.com/uploads/2/3/7/0/23705208/151630838.jpg"
   },
   {
     id: 14,
@@ -111,7 +110,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/4/40/Albus_Dumbledore_%28HBP_promo%29_3.jpg/revision/latest?cb=20150822232849"
+    imageUrl: "https://www.giantbomb.com/a/uploads/scale_medium/0/4165/451958-x_studio_08dumbledore.jpg"
   },
   {
     id: 15,
@@ -119,7 +118,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/ashes_of_chaos/images/1/10/RubeusHagrid.jpg/revision/latest?cb=20200730081843"
+    imageUrl: "https://borg.com/wp-content/uploads/2012/02/fang-with-hagrid.jpg"
   },
   {
     id: 16,
@@ -127,7 +126,7 @@ const characters = [
     house: "Slytherin",
     gender: "female",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/harrypotter/images/1/14/BellatrixLestrange.png/revision/latest?cb=20171101034243"
+    imageUrl: "https://miro.medium.com/v2/resize:fit:524/0*BkXEYMfkYYpEvoPz.jpg"
   },
   {
     id: 17,
@@ -135,7 +134,7 @@ const characters = [
     house: "Gryffindor",
     gender: "male",
     role: "adult",
-    imageUrl: "https://static.wikia.nocookie.net/p__/images/2/2d/Padfoot.jpeg/revision/latest/scale-to-width/360?cb=20160119152604&path-prefix=protagonist"
+    imageUrl: "https://therantingsofabookworm.files.wordpress.com/2016/07/f5110ad6f7c1f0942722d4aa316ad6d4.jpg?w=144"
   }
 ];
 
@@ -185,29 +184,31 @@ const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
 const showSlytherinButton = document.querySelector("#show-slytherin")
 
+console.log(showGryffindorButton)
+
 showAllButton.addEventListener("click", () => {
   cardsOnDom(characters);
 });
 
-showGryffindorButton.addEventListener("click.", () => {
-  const gryffindorChars = filter(characters, "Gryffindor")
+showGryffindorButton.addEventListener("click", () => {
+  const gryffindorChars = filter(characters, "Gryffindor");
   cardsOnDom(gryffindorChars);
 })
 
-showHufflepuffButton.addEventListener("click.", () => {
-  const hufflepuffChars = filter(characters, "Hufflepuff")
+showHufflepuffButton.addEventListener("click", () => {
+  const hufflepuffChars = filter(characters, "Hufflepuff");
   cardsOnDom(hufflepuffChars);
 })
-showRavenclawButton.addEventListener("click.", () => {
-    const ravenclawChars = filter(characters, "Ravenclaw")
+showRavenclawButton.addEventListener("click", () => {
+    const ravenclawChars = filter(characters, "Ravenclaw");
     cardsOnDom(ravenclawChars);
 })
-showGryffindorButton.addEventListener("click.", () => {
-      const slytherinChars = filter(characters, "Slytherin")
+showSlytherinButton.addEventListener("click", () => {
+      const slytherinChars = filter(characters, "Slytherin");
       cardsOnDom(slytherinChars);
 })
 const startApp = () => {
-  cardsOnDom(characters)
+  cardsOnDom(characters);
 }
 
 startApp();

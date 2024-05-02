@@ -1,4 +1,4 @@
-console.log("i'm connected")
+
 //this array of characters may not even be used.
 const characters = [
   {
@@ -139,7 +139,6 @@ const characters = [
   }
 ];
 //the array students will be pushed into when the form submits
-const students =[];
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -147,30 +146,47 @@ const renderToDom = (divId, htmlToRender) => {
 };
 // this is where i will make a formOnTheDom function that is activated when i click the "click me to sort someone" button
 
-const form = document.querySelector("form")
-const createStudent = (e) => {
+
+//this is where my form code will start
+const form = document.querySelector("#form")
+const createCharacter = (e) => {
   e.preventDefault();
 
-  const newStudentObj = {
-    id:students.length + 1,
+  const newCharObj = {
+    id:characters.length + 1,
     name: document.querySelector("#name").value,
     house: document.querySelector("#house").value,
-  }
+  };
+  characters.push(newCharObj)
 }
 
+const formOnDom = () => {
+  let characterForm = `<form id="form">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">New Wizard</label>
+    <input id="name" class="form-control" type="text" placeholder="Name">
+
+  </div>
+  <button type="submit" class="btn btn-primary">Sort</button>
+</form>
+</div>`
+
+renderToDom("#start", characterForm)
+}
+//this is where i'm ging to generate a random number between 1 and 4. 
+const randomNum = Math.floor(Math.random() * 4) + 1
+console.log(randomNum)
+
+//this is my card function that generates the HTML for the cards that go to the dom
 const cardsOnDom = (characters) => {
   let domString ="";
   for (const character of characters) {
     domString += `<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="${character.imageUrl}" class="img-fluid rounded-start" alt="...">
-      </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">${character.name}</h5>
           <p class="card-text">${character.house}</p>
-          <p class="card-text"><small class="text-body-secondary">${character.role}</small></p>
         </div>
         <div>
         <button type="button" class="btn btn-danger" id="delete--${character.id}">EXILE</button>
@@ -193,11 +209,18 @@ const filter = (array, characterHouse) => {
   return houseArray;
 };
 
+const startButton = document.querySelector("#start")
+
 const showAllButton = document.querySelector("#show-all")
 const showGryffindorButton = document.querySelector("#show-gryffindor")
 const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
 const showSlytherinButton = document.querySelector("#show-slytherin")
+
+//event listener for my start button
+startButton.addEventListener("click", () => {
+  formOnDom();
+});
 
 
 showAllButton.addEventListener("click", () => {

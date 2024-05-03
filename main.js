@@ -1,5 +1,3 @@
-
-//this array of characters may not even be used.
 const characters = [
   {
   id: 1,
@@ -138,44 +136,46 @@ const characters = [
     imageUrl: "https://therantingsofabookworm.files.wordpress.com/2016/07/f5110ad6f7c1f0942722d4aa316ad6d4.jpg?w=144"
   }
 ];
-//the array students will be pushed into when the form submits
+
+const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
 };
-// this is where i will make a formOnTheDom function that is activated when i click the "click me to sort someone" button
+// this is my formOnTheDom function that is activated when i click the "click me to sort someone" button
+
+const formOnDom = () => {
+  let characterForm = `<form id="form">
+  <h5>Add a new wizard to hogwarts</h5>
+  <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="name" placeholder="Name" required>
+  <label for="name">New wizard's name</label>
+  
+  </div>
+  <button type="submit" class="btn btn-success" id="form-submit">Sort</button>
+  </form>`
+  
+  renderToDom("#start", characterForm);//function runs when user clicks the start button and shows the form on the DOM
+  const form = document.querySelector("#form");
+  form.addEventListener("submit", createCharacter);//event listener for my form - it should run my createCharacter function and submit my form
+}
 
 
-//this is where my form code will start
-const form = document.querySelector("#form")
+
 const createCharacter = (e) => {
   e.preventDefault();
 
   const newCharObj = {
     id:characters.length + 1,
     name: document.querySelector("#name").value,
-    house: document.querySelector("#house").value,
+    house: houses[Math.floor(Math.random() * houses.length)],
   };
   characters.push(newCharObj)
+  cardsOnDom(characters)
 }
 
-const formOnDom = () => {
-  let characterForm = `<form id="form">
-  <div class="mb-3">
-    <label for="nameInput" class="form-label">New Wizard</label>
-    <input id="name" class="form-control" type="text" placeholder="Name">
 
-  </div>
-  <button type="submit" class="btn btn-primary">Sort</button>
-</form>
-</div>`
-
-renderToDom("#start", characterForm)
-}
-//this is where i'm ging to generate a random number between 1 and 4. 
-const randomNum = Math.floor(Math.random() * 4) + 1
-console.log(randomNum)
 
 //this is my card function that generates the HTML for the cards that go to the dom
 const cardsOnDom = (characters) => {
@@ -189,7 +189,7 @@ const cardsOnDom = (characters) => {
           <p class="card-text">${character.house}</p>
         </div>
         <div>
-        <button type="button" class="btn btn-danger" id="delete--${character.id}">EXILE</button>
+        <button type="button" class="btn btn-danger" id="exile--${character.id}">EXILE</button>
         </div>
       </div>
     </div>
@@ -209,13 +209,22 @@ const filter = (array, characterHouse) => {
   return houseArray;
 };
 
-const startButton = document.querySelector("#start")
+//this is where i'm going to make my exile filter. when exile is clicked, i want the character who's button has been clicked to have an exiled card generated.
+
+//const filter = (array, ???) => {
+ // const exiledArray.forEach
+//}
+
+const startButton = document.querySelector("#start")//where to put my Start button on the dom
 
 const showAllButton = document.querySelector("#show-all")
 const showGryffindorButton = document.querySelector("#show-gryffindor")
 const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
 const showSlytherinButton = document.querySelector("#show-slytherin")
+
+const showExiledButton = document.querySelector("#show-exiled")
+
 
 //event listener for my start button
 startButton.addEventListener("click", () => {
@@ -247,5 +256,5 @@ showSlytherinButton.addEventListener("click", () => {
 const startApp = () => {
   cardsOnDom(characters);
 }
-
+console.log(characters)
 startApp();

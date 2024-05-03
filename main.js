@@ -146,17 +146,16 @@ const renderToDom = (divId, htmlToRender) => {
 // this is my formOnTheDom function that is activated when i click the "click me to sort someone" button
 
 const formOnDom = () => {
-  let characterForm = `<form id="form">
+  const characterForm = `<form id="form">
   <h5>Add a new wizard to hogwarts</h5>
-  <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="name" placeholder="Name" required>
-  <label for="name">New wizard's name</label>
-  
-  </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="name" placeholder="Name" required>
+      <label for="name">New wizard's name</label>
+    </div>
   <button type="submit" class="btn btn-success" id="form-submit">Sort</button>
   </form>`
   
-  renderToDom("#start", characterForm);//function runs when user clicks the start button and shows the form on the DOM
+  renderToDom("#form", characterForm);//function runs when user clicks the start button and shows the form on the DOM
   const form = document.querySelector("#form");
   form.addEventListener("submit", createCharacter);//event listener for my form - it should run my createCharacter function and submit my form
 }
@@ -189,13 +188,21 @@ const cardsOnDom = (characters) => {
           <p class="card-text">${character.house}</p>
         </div>
         <div>
-        <button type="button" class="btn btn-danger" id="exile--${character.id}">EXILE</button>
+        <button type="button" class="btn btn-danger exile-button" id="exile--${character.id}">EXILE</button>
         </div>
       </div>
     </div>
   </div>`
   }
   renderToDom("#app", domString)
+
+// const exileButtons = document.querySelector("")
+// exileButtons.forEach(button => {
+//   button.addEventListener("click", () => {
+//     const exileCharacter(CharacterId);
+//   })
+//})
+
 };
 
 const filter = (array, characterHouse) => {
@@ -239,6 +246,7 @@ showAllButton.addEventListener("click", () => {
 showGryffindorButton.addEventListener("click", () => {
   const gryffindorChars = filter(characters, "Gryffindor");
   cardsOnDom(gryffindorChars);
+  console.log(gryffindorChars)
 })
 
 showHufflepuffButton.addEventListener("click", () => {
@@ -253,8 +261,13 @@ showSlytherinButton.addEventListener("click", () => {
       const slytherinChars = filter(characters, "Slytherin");
       cardsOnDom(slytherinChars);
 })
+showExiledButton.addEventListener("click", () => {
+  cardsOnDom(exiledChars);
+})
+
 const startApp = () => {
   cardsOnDom(characters);
 }
 console.log(characters)
 startApp();
+ 

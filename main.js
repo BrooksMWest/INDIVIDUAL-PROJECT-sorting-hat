@@ -182,7 +182,7 @@ const createCharacter = (e) => {
 const cardsOnDom = (characters) => {//passes in the characters array
   let domString ="";//the empty string that gets the cards
   for (const character of characters) {//for loop that goes through my characters array and makes a card for each one
-    domString += `<div class="card mb-3" style="max-width: 540px;">
+    domString += `<div class="card ${character.house} mb-3" style="max-width: 350px;">
     <div class="row g-0">
       <div class="col-md-8">
         <div class="card-body ${character.house}">
@@ -197,6 +197,19 @@ const cardsOnDom = (characters) => {//passes in the characters array
   </div>`
   }
   renderToDom("#app", domString)//function is called and it passes in the divId and the string we want to put in it
+
+const ExiledOnDom = (exiledChars) => {
+  let domstring =""
+  for (const character of characters)
+    domString += `<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${character.Name}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Has Been Exiled</h6>
+    <p class="card-text">It really is a shame. They seemed like such a good person. It's Likely for the best though.</p>
+  </div>
+</div>`
+}
+
 
 //everything below sets upp event listeners on my exole buttons, extracts the the id from the button and passes to he exileCharacter function 
  const exileButton = document.querySelectorAll(".exile-button")//query selector that selects the button in my form 

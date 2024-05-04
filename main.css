@@ -3,6 +3,7 @@ body {
 }
 .Gryffindor {
   background-color: maroon;
+  color: goldenrod;
 }
 
 .Hufflepuff {
@@ -11,10 +12,12 @@ body {
 
 .Slytherin {
   background-color: green;
+  color: lightgray;
 }
 
 .Ravenclaw {
   background-color: indigo;
+  color: white
 }
 
 .exiled {

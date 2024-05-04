@@ -209,28 +209,28 @@ const cardsOnDom = (characters) => {//passes in the characters array
 };
 //
 const exileCharacter = (characterId) => {//defines the function and passes in characterId (defined above) as the param. 
-  const characterIndex = characters.findIndex(character => character.id === characterId);
-    characters[characterIndex].house = "exiled";
-    const remainingCharacters = characters.filter(character => character.house !== "exiled")
-    cardsOnDom(remainingCharacters);
+  const characterIndex = characters.findIndex(character => character.id === characterId);//uses the findIndex method to find the index of a character in the characters array whose character.Id matches the characterId and passes it to the function
+    characters[characterIndex].house = "exiled"; //this updates the .house value of the character with the matching index to "exiled" and basically takes them out of the characters array
+    const remainingCharacters = characters.filter(character => character.house !== "exiled")//this uses the filter function to take the characters who don't have "exiled" as their house and defines them as remainingCharacters
+    cardsOnDom(remainingCharacters); //runs the cardsOnDom function and passes in the remainingCharacters who don't have "exiled" as their .house and puts them on the dom
 }
 
-const filter = (array, characterHouse) => {
-  const houseArray = [];
+const filter = (array, characterHouse) => {//filter by house function -- used extensively below to sort cards by house
+  const houseArray = []; //array that we're pushing filtered characters into
 
-  array.forEach((character) => {
-    if (character.house === characterHouse) {
-      houseArray.push(character);
+  array.forEach((character) => {//loops over each character element in the array
+    if (character.house === characterHouse) {//check to see if the character.house is the same as the characterHouse
+      houseArray.push(character);//uses the push method to put the characters that test true above into the house array
     }
   });
-  return houseArray;
+  return houseArray;//the filtered array of characters in a specific house
 };
 
 
 
-const startButton = document.querySelector("#start")//where to put my Start button on the dom
+const startButton = document.querySelector("#start")//where to put my Start button on the dom happens to be a button with the id "start"
 
-const showAllButton = document.querySelector("#show-all")
+const showAllButton = document.querySelector("#show-all")//connects my event listers below to my buttons on the dom using the Ids
 const showGryffindorButton = document.querySelector("#show-gryffindor")
 const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
@@ -245,13 +245,13 @@ startButton.addEventListener("click", () => {
 });
 
 
-showAllButton.addEventListener("click", () => {
-  cardsOnDom(characters);
+showAllButton.addEventListener("click", () => {//elementWeAreListeningON.addEventListener("type of event we are listeningfor", ())
+  cardsOnDom(characters);//passes characters into the CardsOnDom function when we do the click
 });
 
 showGryffindorButton.addEventListener("click", () => {
-  const gryffindorChars = filter(characters, "Gryffindor");
-  cardsOnDom(gryffindorChars);
+  const gryffindorChars = filter(characters, "Gryffindor");// same as above but we want Gryffindor cards, so we use the filter and pass in the array and what we want to filter for
+  cardsOnDom(gryffindorChars);//passes in the cards we just filtered and puts them on the DOM
   console.log(gryffindorChars)
 })
 

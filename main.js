@@ -139,7 +139,7 @@ const characters = [
 //array of house names - used in my chreateCharacter function
 const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "exiled"];
 
-//utility for putting whatever you pass into it onto the DOM
+//utility for putting whatever you pass into it onto the DOM - got this from pet adoption - passing in the divId is what helps us know what to render
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
@@ -167,18 +167,19 @@ const createCharacter = (e) => {
   e.preventDefault();
 
   const newCharObj = {
-    id:characters.length + 1,
-    name: document.querySelector("#name").value,
+    id:characters.length + 1,//the +1 gives them an id that is one more than the length of the array
+    name: document.querySelector("#name").value,//selects the value of an HTML element that matches the "name" id and assigns it to the name key
     house: houses[Math.floor(Math.random() * 4)], //originally used house.length, but wanted to leave off exiled.
   };
-  characters.push(newCharObj)
-  cardsOnDom(characters)
+
+  characters.push(newCharObj)//uses the push method to push the newCharObj into the characters array
+  cardsOnDom(characters)//runs the cardsOnDom function passing in the characters array
   console.log(characters)
 }
 
 
 //this is my card function that generates the HTML for the cards that go to the dom
-const cardsOnDom = (characters) => {
+const cardsOnDom = (characters) => {//passes in the characters array
   let domString ="";
   for (const character of characters) {
     domString += `<div class="card mb-3" style="max-width: 540px;">

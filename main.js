@@ -137,7 +137,7 @@ const characters = [
   }
 ];
 
-const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "exiled"];
 
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
@@ -172,8 +172,8 @@ const createCharacter = (e) => {
   };
   characters.push(newCharObj)
   cardsOnDom(characters)
+  console.log(characters)
 }
-
 
 
 //this is my card function that generates the HTML for the cards that go to the dom
@@ -183,12 +183,12 @@ const cardsOnDom = (characters) => {
     domString += `<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-8">
-        <div class="card-body">
+        <div class="card-body ${character.house}">
           <h5 class="card-title">${character.name}</h5>
           <p class="card-text">${character.house}</p>
         </div>
         <div>
-        <button type="button" class="btn btn-danger exile-button" id="exile--${character.id}">EXILE</button>
+        <button type="button" class="btn btn-danger exile-button" id="${character.id}">EXILE</button>
         </div>
       </div>
     </div>
@@ -196,14 +196,23 @@ const cardsOnDom = (characters) => {
   }
   renderToDom("#app", domString)
 
-// const exileButtons = document.querySelector("")
-// exileButtons.forEach(button => {
-//   button.addEventListener("click", () => {
-//     const exileCharacter(CharacterId);
-//   })
-//})
+ const exileButton = document.querySelectorAll(".exile-button")
+ exileButton.forEach(button => {
+   button.addEventListener("click", () => {
+    const characterId = parseInt(button.id);
+     exileCharacter(characterId);
+  
+   })
+})
 
 };
+
+const exileCharacter = (characterId) => {
+  const characterIndex = characters.findIndex(character => character.id === characterId);
+    characters[characterIndex].house = "exiled";
+    const remainingCharacters = characters.filter(character => character.house !== "exiled")
+    cardsOnDom(remainingCharacters);
+}
 
 const filter = (array, characterHouse) => {
   const houseArray = [];
@@ -216,11 +225,7 @@ const filter = (array, characterHouse) => {
   return houseArray;
 };
 
-//this is where i'm going to make my exile filter. when exile is clicked, i want the character who's button has been clicked to have an exiled card generated.
 
-//const filter = (array, ???) => {
- // const exiledArray.forEach
-//}
 
 const startButton = document.querySelector("#start")//where to put my Start button on the dom
 
@@ -261,7 +266,9 @@ showSlytherinButton.addEventListener("click", () => {
       const slytherinChars = filter(characters, "Slytherin");
       cardsOnDom(slytherinChars);
 })
+
 showExiledButton.addEventListener("click", () => {
+  const exiledChars = filter(characters, "exiled");
   cardsOnDom(exiledChars);
 })
 

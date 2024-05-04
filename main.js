@@ -1,4 +1,3 @@
-console.log("i'm connected")
 const characters = [
   {
   id: 1,
@@ -137,35 +136,84 @@ const characters = [
     imageUrl: "https://therantingsofabookworm.files.wordpress.com/2016/07/f5110ad6f7c1f0942722d4aa316ad6d4.jpg?w=144"
   }
 ];
+//array of house names - used in my chreateCharacter function
+const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "exiled"];
 
+//utility for putting whatever you pass into it onto the DOM
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
 };
+// this is my formOnTheDom function that is activated when i click the "click me to sort someone" button
 
+const formOnDom = () => {
+  const characterForm = `<form id="form">
+  <h5>Add a new wizard to hogwarts</h5>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="name" placeholder="Name" required>
+      <label for="name">New wizard's name</label>
+    </div>
+  <button type="submit" class="btn btn-success" id="form-submit">Sort</button>
+  </form>`
+  
+  renderToDom("#form", characterForm);//function runs when user clicks the start button and shows the form on the DOM  - the form is rendered
+  const form = document.querySelector("#form");//
+  form.addEventListener("submit", createCharacter);//event listener for my form - it should run my createCharacter function and submit my form
+}
+
+
+
+const createCharacter = (e) => {
+  e.preventDefault();
+
+  const newCharObj = {
+    id:characters.length + 1,
+    name: document.querySelector("#name").value,
+    house: houses[Math.floor(Math.random() * 4)], //originally used house.length, but wanted to leave off exiled.
+  };
+  characters.push(newCharObj)
+  cardsOnDom(characters)
+  console.log(characters)
+}
+
+
+//this is my card function that generates the HTML for the cards that go to the dom
 const cardsOnDom = (characters) => {
   let domString ="";
   for (const character of characters) {
     domString += `<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="${character.imageUrl}" class="img-fluid rounded-start" alt="...">
-      </div>
       <div class="col-md-8">
-        <div class="card-body">
+        <div class="card-body ${character.house}">
           <h5 class="card-title">${character.name}</h5>
           <p class="card-text">${character.house}</p>
-          <p class="card-text"><small class="text-body-secondary">${character.role}</small></p>
         </div>
         <div>
-        <button type="button" class="btn btn-danger" id="delete--${character.id}">EXILE</button>
+        <button type="button" class="btn btn-danger exile-button" id="${character.id}">EXILE</button>
         </div>
       </div>
     </div>
   </div>`
   }
   renderToDom("#app", domString)
+
+ const exileButton = document.querySelectorAll(".exile-button")
+ exileButton.forEach(button => {
+   button.addEventListener("click", () => {
+    const characterId = parseInt(button.id);
+     exileCharacter(characterId);
+  
+   })
+})
+
 };
+
+const exileCharacter = (characterId) => {
+  const characterIndex = characters.findIndex(character => character.id === characterId);
+    characters[characterIndex].house = "exiled";
+    const remainingCharacters = characters.filter(character => character.house !== "exiled")
+    cardsOnDom(remainingCharacters);
+}
 
 const filter = (array, characterHouse) => {
   const houseArray = [];
@@ -178,13 +226,24 @@ const filter = (array, characterHouse) => {
   return houseArray;
 };
 
+
+
+const startButton = document.querySelector("#start")//where to put my Start button on the dom
+
 const showAllButton = document.querySelector("#show-all")
 const showGryffindorButton = document.querySelector("#show-gryffindor")
 const showHufflepuffButton = document.querySelector("#show-hufflepuff")
 const showRavenclawButton = document.querySelector("#show-ravenclaw")
 const showSlytherinButton = document.querySelector("#show-slytherin")
 
-console.log(showGryffindorButton)
+const showExiledButton = document.querySelector("#show-exiled")
+
+
+//event listener for my start button
+startButton.addEventListener("click", () => {
+  formOnDom();
+});
+
 
 showAllButton.addEventListener("click", () => {
   cardsOnDom(characters);
@@ -193,6 +252,7 @@ showAllButton.addEventListener("click", () => {
 showGryffindorButton.addEventListener("click", () => {
   const gryffindorChars = filter(characters, "Gryffindor");
   cardsOnDom(gryffindorChars);
+  console.log(gryffindorChars)
 })
 
 showHufflepuffButton.addEventListener("click", () => {
@@ -207,8 +267,15 @@ showSlytherinButton.addEventListener("click", () => {
       const slytherinChars = filter(characters, "Slytherin");
       cardsOnDom(slytherinChars);
 })
+
+showExiledButton.addEventListener("click", () => {
+  const exiledChars = filter(characters, "exiled");
+  cardsOnDom(exiledChars);
+})
+
 const startApp = () => {
   cardsOnDom(characters);
 }
-
+console.log(characters)
 startApp();
+ 

@@ -9,11 +9,15 @@
 </head>
 <body>
   <h1>The Unofficial Sorting Hat App</h1>
-  <!--this is where I will put my search bar for characters-->
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="inputGroup-sizing-default">Sort</span>
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+  <!--the only thing we should see at first is the title of thing is the the button that will take you to a form-->
+  <div id="start-button-div">
+    <button type="button" class="btn btn-primary" id="start">Click to sort someone!</button>
   </div>
+  <div id="form"></div>
+  
+  
+
   
   <!--this is where my buttons will go --->
   <div id="button-div">
@@ -22,6 +26,7 @@
     <button type="button" class="btn btn-primary" id="show-ravenclaw">Ravenclaw</button>
     <button type="button" class="btn btn-primary" id="show-slytherin">Slytherin</button>
     <button type="button" class="btn btn-primary" id="show-all">All Characters</button>
+    <button type="button" class="btn btn-danger" id="show-exiled">Exiled Characters</button>
   </div>
 
   <div id="app"></div>

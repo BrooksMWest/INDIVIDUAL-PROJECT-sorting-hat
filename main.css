@@ -1,3 +1,22 @@
 body {
-  background-color: blueviolet;
+  background-color: tan;
+}
+.Gryffindor {
+  background-color: maroon;
+}
+
+.Hufflepuff {
+  background-color: goldenrod
+}
+
+.Slytherin {
+  background-color: green;
+}
+
+.Ravenclaw {
+  background-color: indigo;
+}
+
+.exiled {
+  background-color: gray;
 }

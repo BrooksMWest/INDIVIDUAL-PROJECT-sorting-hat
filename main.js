@@ -180,8 +180,8 @@ const createCharacter = (e) => {
 
 //this is my card function that generates the HTML for the cards that go to the dom
 const cardsOnDom = (characters) => {//passes in the characters array
-  let domString ="";
-  for (const character of characters) {
+  let domString ="";//the empty string that gets the cards
+  for (const character of characters) {//for loop that goes through my characters array and makes a card for each one
     domString += `<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-8">
@@ -196,20 +196,19 @@ const cardsOnDom = (characters) => {//passes in the characters array
     </div>
   </div>`
   }
-  renderToDom("#app", domString)
+  renderToDom("#app", domString)//function is called and it passes in the divId and the string we want to put in it
 
- const exileButton = document.querySelectorAll(".exile-button")
- exileButton.forEach(button => {
-   button.addEventListener("click", () => {
-    const characterId = parseInt(button.id);
-     exileCharacter(characterId);
-  
+//everything below sets upp event listeners on my exole buttons, extracts the the id from the button and passes to he exileCharacter function 
+ const exileButton = document.querySelectorAll(".exile-button")//query selector that selects the button in my form 
+ exileButton.forEach(button => {//for each loop tha iterates over what is in the button
+   button.addEventListener("click", () => {//event listenere for the exile button click
+    const characterId = parseInt(button.id);//changes the button id into a number and stores it in characterId
+     exileCharacter(characterId); // calls the exileCharacter function and passes in the number stored in the characterId variable
    })
 })
-
 };
-
-const exileCharacter = (characterId) => {
+//
+const exileCharacter = (characterId) => {//defines the function and passes in characterId (defined above) as the param. 
   const characterIndex = characters.findIndex(character => character.id === characterId);
     characters[characterIndex].house = "exiled";
     const remainingCharacters = characters.filter(character => character.house !== "exiled")

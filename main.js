@@ -136,9 +136,10 @@ const characters = [
     imageUrl: "https://therantingsofabookworm.files.wordpress.com/2016/07/f5110ad6f7c1f0942722d4aa316ad6d4.jpg?w=144"
   }
 ];
-
+//array of house names - used in my chreateCharacter function
 const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin", "exiled"];
 
+//utility for putting whatever you pass into it onto the DOM
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender
@@ -155,8 +156,8 @@ const formOnDom = () => {
   <button type="submit" class="btn btn-success" id="form-submit">Sort</button>
   </form>`
   
-  renderToDom("#form", characterForm);//function runs when user clicks the start button and shows the form on the DOM
-  const form = document.querySelector("#form");
+  renderToDom("#form", characterForm);//function runs when user clicks the start button and shows the form on the DOM  - the form is rendered
+  const form = document.querySelector("#form");//
   form.addEventListener("submit", createCharacter);//event listener for my form - it should run my createCharacter function and submit my form
 }
 
@@ -168,7 +169,7 @@ const createCharacter = (e) => {
   const newCharObj = {
     id:characters.length + 1,
     name: document.querySelector("#name").value,
-    house: houses[Math.floor(Math.random() * houses.length)],
+    house: houses[Math.floor(Math.random() * 4)], //originally used house.length, but wanted to leave off exiled.
   };
   characters.push(newCharObj)
   cardsOnDom(characters)

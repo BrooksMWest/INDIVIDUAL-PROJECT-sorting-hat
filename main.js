@@ -182,7 +182,7 @@ const createCharacter = (e) => {
 const cardsOnDom = (characters) => {//passes in the characters array
   let domString ="";//the empty string that gets the cards
   for (const character of characters) {//for loop that goes through my characters array and makes a card for each one
-    domString += `<div class="card ${character.house} mb-3" style="max-width: 350px;">
+    domString += `<div class="card ${character.house} mb-3" style="min-width: 300px; max-width: 450px;">
     <div class="row g-0">
       <div class="col-md-8">
         <div class="card-body ${character.house}">
@@ -198,29 +198,29 @@ const cardsOnDom = (characters) => {//passes in the characters array
   }
   renderToDom("#app", domString)//function is called and it passes in the divId and the string we want to put in it
 
+  
+  
+  //everything below sets upp event listeners on my exole buttons, extracts the the id from the button and passes to he exileCharacter function 
+  const exileButton = document.querySelectorAll(".exile-button")//query selector that selects the button in my form 
+  exileButton.forEach(button => {//for each loop tha iterates over what is in the button
+    button.addEventListener("click", () => {//event listenere for the exile button click
+      const characterId = parseInt(button.id);//changes the button id into a number and stores it in characterId
+      exileCharacter(characterId); // calls the exileCharacter function and passes in the number stored in the characterId variable
+    })
+  })
+};
+
 const ExiledOnDom = (exiledChars) => {
-  let domstring =""
-  for (const character of characters)
+  let domString =""
+  for (const character of exiledChars)
     domString += `<div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${character.Name}</h5>
+    <h5 class="card-title">${character.name}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Has Been Exiled</h6>
     <p class="card-text">It really is a shame. They seemed like such a good person. It's Likely for the best though.</p>
   </div>
 </div>`
 }
-
-
-//everything below sets upp event listeners on my exole buttons, extracts the the id from the button and passes to he exileCharacter function 
- const exileButton = document.querySelectorAll(".exile-button")//query selector that selects the button in my form 
- exileButton.forEach(button => {//for each loop tha iterates over what is in the button
-   button.addEventListener("click", () => {//event listenere for the exile button click
-    const characterId = parseInt(button.id);//changes the button id into a number and stores it in characterId
-     exileCharacter(characterId); // calls the exileCharacter function and passes in the number stored in the characterId variable
-   })
-})
-};
-//
 const exileCharacter = (characterId) => {//defines the function and passes in characterId (defined above) as the param. 
   const characterIndex = characters.findIndex(character => character.id === characterId);//uses the findIndex method to find the index of a character in the characters array whose character.Id matches the characterId and passes it to the function
     characters[characterIndex].house = "exiled"; //this updates the .house value of the character with the matching index to "exiled" and basically takes them out of the characters array

@@ -1,3 +1,10 @@
+#app {
+  display: flex;
+  flex-flow: row wrap;
+}
+.card {
+  margin: 30px;
+}
 body {
   background-color: tan;
 }
@@ -22,4 +29,14 @@ body {
 
 .exiled {
   background-color: gray;
+}
+.btn-primary {
+  margin: 20px;
+}
+.btn-danger {
+  margin: 20px;
+}
+#button-div {
+  display:flex;
+  justify-content: center;
 }
